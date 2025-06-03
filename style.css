@@ -1,0 +1,446 @@
+@import url('https://fonts.com/css2?family=Share+Tech+Mono&display=swap');
+
+/* Configuración base para HTML y Body */
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Share Tech Mono', monospace;
+  background: url('img/fondo.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #e0e0e0;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Capa de oscurecimiento sobre la imagen de fondo del body */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: -1;
+}
+
+/* Contenido principal flexible */
+main {
+  flex: 1 0 auto;
+}
+
+/* Estilos de cabecera y pie de página */
+header, footer {
+  background-color: #1a1c25;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 3px solid #00ffe7;
+}
+
+footer {
+  border-top: 3px solid #00ffe7;
+  border-bottom: none;
+  margin-top: 40px;
+  padding: 15px;
+  font-size: 0.9em;
+  color: #aaa;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+/* Título principal del encabezado */
+header h1 {
+  font-size: 2.8em;
+  color: #00ffe7;
+  animation: glow 1.8s ease-in-out infinite alternate;
+  margin: 0;
+}
+
+/* Animación de brillo para el título */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #00ffe7, 0 0 10px #00ffe7;
+  }
+  to {
+    text-shadow: 0 0 20px #00ffe7, 0 0 40px #00ffe7;
+  }
+}
+
+/* Estilos de la barra de navegación principal */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* Elementos de la lista de navegación */
+nav ul li {
+  position: relative;
+}
+
+/* Enlaces del menú principal */
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1.5px solid #ffffff;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Efecto hover/focus para enlaces del menú principal */
+nav ul li a:hover,
+nav ul li a:focus {
+  background-color: #ffffff;
+  color: #0f1117;
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* Submenú desplegable (oculto por defecto) */
+nav ul li ul.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: #1a1c25;
+  border: 1.5px solid #00ffe7;
+  border-radius: 8px;
+  padding: 5px 0;
+  min-width: 128px;
+  z-index: 1000;
+  box-shadow: 0 0 15px #00ffe7aa;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  margin-top: 2.8px;
+}
+
+
+/* Mostrar submenú al pasar el ratón o enfocar el elemento padre */
+nav ul li:hover > ul.dropdown-menu,
+nav ul li:focus-within > ul.dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Estilos de los elementos de la lista dentro del submenú */
+nav ul li ul.dropdown-menu li {
+  margin: 0;
+}
+
+/* Estilos de los enlaces dentro del submenú */
+nav ul li ul.dropdown-menu li a {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 0;
+  font-weight: 500;
+  color: #00ffe7;
+  white-space: nowrap;
+  display: flex;
+}
+
+/* Efecto hover/focus para enlaces del submenú */
+nav ul li ul.dropdown-menu li a:hover,
+nav ul li ul.dropdown-menu li a:focus {
+  background-color: #00ffe7;
+  color: #0f1117;
+  transform: none;
+}
+
+/* Contenedores de contenido (secciones, artículos, asides) */
+section, article, aside {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(26, 28, 37, 0.98);
+  border-left: 5px solid #00ffe7;
+  border-radius: 10px;
+  max-width: 900px;
+  box-shadow: 0 0 12px rgba(0, 255, 231, 0.3);
+}
+
+/* Títulos principales de sección */
+h2 {
+  color: #00ffe7;
+  margin-bottom: 15px;
+  position: relative;
+  animation: slideInLeft 1s ease forwards;
+  opacity: 0;
+}
+
+/* Animación para títulos h2 */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    left: -20px;
+  }
+  to {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+/* Estilos generales para listas */
+ul, ol {
+  padding-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+/* Estilos para tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  box-shadow: 0 0 15px #00ffe7aa;
+}
+
+table, th, td {
+  border: 1px solid #00ffe7;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  background-color: #12131a;
+}
+
+th {
+  background-color: #00ffe7;
+  color: #0f1117;
+  font-weight: 700;
+}
+
+/* Estilos para formularios */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #1d1f2a;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00ffe7aa;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: 600;
+  color: #00ffe7;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 12px;
+  border: 2px solid #00ffe7;
+  border-radius: 8px;
+  background-color: #0f1117;
+  color: #e0e0e0;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #00fff7;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Estilos y animación para botones de submit/botón */
+input[type="submit"],
+button {
+  background-color: #00ffe7;
+  color: #0f1117;
+  border: none;
+  padding: 14px 25px;
+  font-weight: 700;
+  font-size: 1.1em;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus,
+button:hover,
+button:focus {
+  background-color: #00d7c7;
+  transform: scale(1.1);
+  box-shadow: 0 0 12px #00b4d8;
+  outline: none;
+}
+
+input[type="submit"]:active,
+button:active {
+  transform: scale(0.97);
+  transition: transform 0.1s;
+}
+
+/* Estilos para imágenes generales */
+img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00ffe7aa;
+  margin-top: 15px;
+  display: block;
+}
+
+/* Estilos específicos para la sección de marcas destacadas */
+.brand-highlight {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.brand-highlight img {
+  max-width: 300px;
+  display: block;
+  margin: 15px auto;
+}
+
+/* Estilos para cada testimonio individual */
+.testimonial-item {
+  background-color: rgba(26, 28, 37, 0.95);
+  padding: 15px 20px;
+  border-left: 3px solid #00ffe7;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 255, 231, 0.2);
+}
+
+/* Ajustes para el texto dentro de los testimonios */
+.testimonial-item p {
+  margin: 0;
+  padding: 0;
+  font-style: italic;
+}
+
+/* Estilos específicos para el nombre del autor del testimonio */
+.testimonial-item .testimonial-author {
+  text-align: right;
+  font-style: normal;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #00ffe7;
+  font-size: 0.95em;
+}
+
+/* Estilos para el contenedor del checkbox del formulario de contacto */
+.checkbox-container {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Estilos específicos para la etiqueta del checkbox */
+.checkbox-container label {
+  font-weight: normal;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+/* Estilos para el enlace dentro de la etiqueta del checkbox */
+.checkbox-container label a {
+  color: #00ffe7;
+  text-decoration: underline;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  transform: none;
+  background-color: transparent;
+}
+
+.checkbox-container label a:hover,
+.checkbox-container label a:focus {
+  color: #00d7c7;
+  background-color: transparent;
+  transform: none;
+}
+
+/* Enlaces generales (fuera de la navegación principal) */
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #e0e0e0;
+}
+
+/* Media queries para diseño responsive en pantallas pequeñas */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  section, article, aside {
+    margin: 15px 10px;
+    padding: 15px;
+  }
+  input[type="submit"],
+  button {
+    font-size: 1em;
+  }
+  nav ul li ul.dropdown-menu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+  }
+  nav ul li ul.dropdown-menu li a {
+    text-align: center;
+  }
+}
+
+/* Estilos para elementos select */
+select {
+  padding: 12px;
+  border: 2px solid #00ffe7;
+  border-radius: 8px;
+  background-color: #0f1117;
+  color: #e0e0e0;
+  font-size: 1em;
+  font-family: 'Share Tech Mono', monospace;
+  transition: border-color 0.3s ease;
+}
+
+select:focus {
+  border-color: #00fff7;
+  outline: none;
+}
+
+/* Estilos para opciones dentro de select */
+option {
+  background-color: #1a1c25;
+  color: #e0e0e0;
+}
